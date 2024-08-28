@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Final for Sukhmanmeet</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<h1>Courses for student: <span th:text="${studentName}"></span></h1>
+<table>
+    <thead>
+    <tr>
+        <th>Course Name</th>
+        <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.name}"></td>
+        <td th:text="${course.grade}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/addCourse/{id}(id=${student.id})}">Add a course</a>
+
+<a href="/" >Back to index</a>
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+</body>
+</html>

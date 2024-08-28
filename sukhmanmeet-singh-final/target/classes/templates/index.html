@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Final for Sukhmanmeet</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<h2>Select a student to view the courses</h2>
+<form th:action="@{/}" th:object="${student}" method="post">
+
+    <select name="students">
+        <th:block th:each="s : ${students}">
+            <option th:value="${s.id}" th:text="${s.name}" selected></option>
+        </th:block>
+    </select><br/><br/>
+
+    <button type="submit">View courses</button>
+</form>
+<footer th:replace="fragments/footer.html :: footer"></footer>
+</body>
+</html>
